@@ -6,9 +6,9 @@ class SJF:
 
     def executar(self):
         print("\nResultado da simulação (SJF):")
-        print("-------------------------------------------------")
+        print("-"* 50)
         print("Processo | Ordem | Execução | Espera | Turnaround")
-        print("-------------------------------------------------")
+        print("-"* 50)
 
         processos_ordenados = sorted(self.processos.listProcesses.items(), key=lambda item: item[1])
 
@@ -28,6 +28,6 @@ class SJF:
             ordem += 1
 
         n = len(processos_ordenados)
-        print("-------------------------------------------------")
+        print("-"* 50)
         print(f"Média do tempo de espera: {tempo_espera_total / n:.2f}")
         print(f"Média do tempo de turnaround: {tempo_turnaround_total / n:.2f}")
