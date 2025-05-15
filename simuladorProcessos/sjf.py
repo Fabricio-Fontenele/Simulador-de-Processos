@@ -10,24 +10,24 @@ class SJF:
         print("Processo | Ordem | Execução | Espera | Turnaround")
         print("-"* 50)
 
-        processos_ordenados = sorted(self.processos.listProcesses.items(), key=lambda item: item[1])
+        ordered_processes = sorted(self.processos.listProcesses.items(), key=lambda item: item[1])
 
-        tempo_espera_total = 0
-        tempo_turnaround_total = 0
-        tempo_espera = 0
-        ordem = 1
+        total_waiting_time = 0
+        total_turnaround_time = 0
+        waiting_time = 0
+        order = 1
 
-        for chave, tempo_exec in processos_ordenados:
-            turnaround = tempo_espera + tempo_exec
+        for key, temp_exec in ordered_processes:
+            turnaround = waiting_time + temp_exec
 
-            print(f"{chave:^8} | {ordem:^5} | {tempo_exec:^8} | {tempo_espera:^6} | {turnaround:^10}")
-            tempo_espera_total += tempo_espera
-            tempo_turnaround_total += turnaround
+            print(f"{key:^8} | {order:^5} | {temp_exec:^8} | {waiting_time:^6} | {turnaround:^10}")
+            total_waiting_time += waiting_time
+            total_turnaround_time += turnaround
 
-            tempo_espera += tempo_exec
-            ordem += 1
+            waiting_time += temp_exec
+            order += 1
 
-        n = len(processos_ordenados)
+        n = len(ordered_processes)
         print("-"* 50)
-        print(f"Média do tempo de espera: {tempo_espera_total / n:.2f}")
-        print(f"Média do tempo de turnaround: {tempo_turnaround_total / n:.2f}")
+        print(f"Média do tempo de espera: {total_waiting_time / n:.2f}")
+        print(f"Média do tempo de turnaround: {total_turnaround_time / n:.2f}")

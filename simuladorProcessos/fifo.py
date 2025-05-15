@@ -1,8 +1,8 @@
 from process import Process
 
 class Fifo:
-    def __init__(self, processos: Process):
-        self.processos = processos
+    def __init__(self, process: Process):
+        self.process = process
 
     def executar(self):
         print("\nResultado da simulação (FIFO):")
@@ -10,23 +10,23 @@ class Fifo:
         print("Processo | Ordem | Execução | Espera | Turnaround")
         print("-"* 50)
 
-        tempo_espera_total = 0
-        tempo_turnaround_total = 0
-        tempo_espera = 0
-        ordem = 1
+        total_waiting_time = 0
+        temp_turnaround_total = 0
+        waiting_time = 0
+        order = 1
 
-        for chave in self.processos.getKey():
-            tempo_exec = self.processos.listProcesses[chave]
-            turnaround = tempo_espera + tempo_exec
+        for key in self.process.getKey():
+            temp_exec = self.process.listProcesses[key]
+            turnaround = waiting_time + temp_exec
 
-            print(f"{chave:^8} | {ordem:^5} | {tempo_exec:^8} | {tempo_espera:^6} | {turnaround:^10}")
-            tempo_espera_total += tempo_espera
-            tempo_turnaround_total += turnaround
+            print(f"{key:^8} | {order:^5} | {temp_exec:^8} | {waiting_time:^6} | {turnaround:^10}")
+            total_waiting_time += waiting_time
+            temp_turnaround_total += turnaround
 
-            tempo_espera += tempo_exec
-            ordem += 1
+            waiting_time += temp_exec
+            order += 1
 
-        n = len(self.processos.getKey())
+        n = len(self.process.getKey())
         print("-"* 50)
-        print(f"Média do tempo de espera: {tempo_espera_total / n:.2f}")
-        print(f"Média do tempo de turnaround: {tempo_turnaround_total / n:.2f}")
+        print(f"Média do tempo de espera: {total_waiting_time / n:.2f}")
+        print(f"Média do tempo de turnaround: {temp_turnaround_total / n:.2f}")
