@@ -1,16 +1,21 @@
 from process import Process
-
+from fifo import Fifo
+from sjf import SJF
 
 processo = Process()
-processo.addProcess("A", 15)
-processo.addProcess("B", 6)
-processo.addProcess("C", 20)
-processo.addProcess("D", 4)
-processo.addProcess("E", 10)
-processo.addProcess("F", 5)
+processo.addProcess("P1", 15)
+processo.addProcess("P2", 6)
+processo.addProcess("P3", 20)
+processo.addProcess("P4", 4)
+processo.addProcess("P4", 10)
+processo.addProcess("P5", 5)
 
-processo.showInfo()
+fifo_exec = Fifo(processo)
 
-processo.turnaround("E")
+fifo_exec.executar()
 
-processo.processTime("E")
+sjf_exec = SJF(processo)
+sjf_exec.executar()
+
+#A saida usei como base o trabalho dos meninos
+# mas posso muda a saida qualquer coisa
