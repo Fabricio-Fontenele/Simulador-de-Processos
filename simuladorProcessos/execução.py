@@ -21,3 +21,4 @@ def application(process):
             sjf.executar()
         else:
             print("Opção inválida!")
+
