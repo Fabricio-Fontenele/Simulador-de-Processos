@@ -1,16 +1,14 @@
-
-## AUTORES : Denis do Nascimento Rodrigues, Fabricio Fontenele e Ruan Pedro de Araujo Anjos
-
 from process import Process
 from execução import application
 
 def main():
     processo = Process()
-    processo.addProcess("B", 10)
-    processo.addProcess("E", 16)
-    processo.addProcess("A", 6)
-    processo.addProcess("D", 12)
-    processo.addProcess("C", 15)
+    processo.addProcess("P1", 15)
+    processo.addProcess("P2", 7)
+    processo.addProcess("P3", 30)
+    processo.addProcess("P4", 2)
+    processo.addProcess("P5", 10)
+    processo.addProcess("P6", 5)
 
     application(processo)
 
