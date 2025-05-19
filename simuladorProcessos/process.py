@@ -17,4 +17,3 @@ class Process:
     def showInfo(self):
         for key, value in self.listProcesses.items():
             print(f'Processo: {key} / Tempo de processo: {value}')
-
