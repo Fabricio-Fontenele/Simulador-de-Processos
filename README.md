@@ -55,7 +55,6 @@ Por exemplo:
 ## Observações
 
 - O código pode ser facilmente expandido para suportar outros algoritmos de escalonamento.
-- Comentários no código explicam as principais funções de cada classe.
 
 ## Colaboradores
 
