@@ -1,5 +1,7 @@
 # Simulador de Processos
 
+[Funcionalidades](#funcionalidades) | [Estrutura dos Principais Arquivos](#estrutura-dos-principais-arquivos) | [Como Usar](#como-usar) | [Exemplo de Uso](#exemplo-de-uso) | [Observações](#observacoes)
+
 Este projeto é um simulador de algoritmos de escalonamento de processos, desenvolvido em Python. Ele permite criar processos com tempos de execução definidos e simular dois algoritmos clássicos de escalonamento: **FIFO (First-In-First-Out)** e **SJF (Shortest Job First)**.
 
 ## Funcionalidades
