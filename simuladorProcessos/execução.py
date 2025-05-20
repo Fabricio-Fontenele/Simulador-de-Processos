@@ -15,26 +15,39 @@ def application(process):
 
         if action == "1":
             run_algorithms(process)
+
         elif action == "2":
-            add_process(process)
+            while True:
+                add_process(process)
+                continueQuestion = input('Quer adicionar mais processos? (S/N): ')
+
+                if continueQuestion == 'S':
+                    continue
+                else:
+                    print("-" * 50)
+                    break
+
         elif action == "3":
             remove_process(process)
         elif action == "4":
             show_process_info(process)
         elif action == "5":
             print(" "*17,"FIM DE EXECUÇÃO")
+            break
         else:
             print("-" * 50)
             print(" " * 17, "Valor Inválido")
             print("-" * 50)
 
 
-        contin = input("quer continuar ? [S/N]: ").upper().split()
-        if contin == "N":
+        contin = input("quer continuar ? [S/N]: ").upper()
+        if contin == "S":
+            continue
+        
+        elif contin == "N":
             print(f" "*15,"FIM DE EXECUÇÃO")
             break
-        elif contin == "S":
-            continue
+        
         else:
             print("Opção inválida. Digite apenas S ou N.\n")
 

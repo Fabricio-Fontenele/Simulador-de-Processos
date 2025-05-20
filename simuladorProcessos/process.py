@@ -13,6 +13,9 @@ class Process:
 
     def getKey(self):
         return list(self.listProcesses.keys())
+    
+    def getProcess(self): 
+        return list(self.listProcesses)
 
     def showInfo(self):
         for key, value in self.listProcesses.items():
