@@ -1,3 +1,7 @@
+# Autores: Denis do Nascimento Rodrigues,
+# Ruan Pedro de Araujo Anjos e
+# Fabrício Fontenele Vieira
+
 from process import Process
 from execução import application
 
