@@ -3,20 +3,57 @@ from sjf import SJF
 from process import Process
 
 def application(process):
+
     while True:
-        
+        print("-"*50)
+        print(f" "* 16,"Escolha a ação")
+        print(f"1 - Executar Algoritmos\n2 - Adicionar Processo")
+        print(f"3 - Remover Processo\n4 - Mostrar Informações dos Processos\n5 - Sair")
+        print("-"*50)
+
+        action = input("Digite sua opção: ")
+
+        if action == "1":
+            run_algorithms(process)
+        elif action == "2":
+            add_process(process)
+        elif action == "3":
+            remove_process(process)
+        elif action == "4":
+            show_process_info(process)
+        elif action == "5":
+            print(" "*17,"FIM DE EXECUÇÃO")
+        else:
+            print("-" * 50)
+            print(" " * 17, "Valor Inválido")
+            print("-" * 50)
+
+
+        contin = input("quer continuar ? [S/N]: ").upper().split()
+        if contin == "N":
+            print(f" "*15,"FIM DE EXECUÇÃO")
+            break
+        elif contin == "S":
+            continue
+        else:
+            print("Opção inválida. Digite apenas S ou N.\n")
+
+
+def run_algorithms(process):
         print("-"*50)
         print("Escolha o algoritmo de escalonamento:")
         print(f"1 - FIFO\n2 - SJF\n3 - Ambos")
         print("-"*50)
-        opcao = input("Digite sua opção: ")
-        if opcao == "1":
+
+        option = input("Digite sua opção: ")
+
+        if option == "1":
             fifo = Fifo(process)
             fifo.executar()
-        elif opcao == "2":
+        elif option == "2":
             sjf = SJF(process)
             sjf.executar()
-        elif opcao == "3":
+        elif option == "3":
             fifo = Fifo(process)
             fifo.executar()
             sjf = SJF(process)
@@ -26,12 +63,18 @@ def application(process):
             print(f" "*17,"Valor Invalido")
             print("-"*50)
 
-        contin = input("quer continuar ? [S/N]: ").upper().split()
+def add_process(process):
+    key = input("Nome do processo a ser adicionado: ").upper()
+    time = int(input("Tempo de execução do processo: "))
+    process.addProcess(key, time)
+    print(f"Processo {key}: {time} adicionado.")
 
-        if contin == "N":
-            print(f" "*15,"FIM DE EXECUÇÃO")
-            break
-        elif contin == "S":
-            continue
-        else:
-            print("Opção inválida. Digite apenas S ou N.\n")
+def remove_process(process):
+    key = input("Digite a chave do processo a ser removido: ")
+    if process.removeProcess(key):
+        print(f"Processo {key} removido.")
+    else:
+        print(f"Processo {key} não encontrado.")
+
+def show_process_info(process):
+    process.showInfo()

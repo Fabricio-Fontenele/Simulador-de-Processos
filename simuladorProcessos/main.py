@@ -3,13 +3,6 @@ from execução import application
 
 def main():
     processo = Process()
-    processo.addProcess("P1", 15)
-    processo.addProcess("P2", 7)
-    processo.addProcess("P3", 30)
-    processo.addProcess("P4", 2)
-    processo.addProcess("P5", 10)
-    processo.addProcess("P6", 5)
-
     application(processo)
 
 if __name__ == "__main__":
