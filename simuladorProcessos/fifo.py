@@ -5,6 +5,10 @@ class Fifo:
         self.process = process
 
     def executar(self):
+        if not self.process.getKey():
+            print("Não há processos. Adicione processos primeiro.")
+            return
+        print("-"* 50)
         print("\nResultado da simulação (FIFO):")
         print("-"* 50)
         print("Processo | Ordem | Execução | Espera | Turnaround")

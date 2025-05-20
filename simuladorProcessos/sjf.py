@@ -5,6 +5,10 @@ class SJF:
         self.processos = processos
 
     def executar(self):
+        if not self.processos.listProcesses:
+            print("\nNão há processos. Adicione processos primeiro.")
+            return
+        print("-"* 50)
         print("\nResultado da simulação (SJF):")
         print("-"* 50)
         print("Processo | Ordem | Execução | Espera | Turnaround")

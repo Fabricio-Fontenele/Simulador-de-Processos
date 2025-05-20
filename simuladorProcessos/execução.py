@@ -1,6 +1,6 @@
 from fifo import Fifo
 from sjf import SJF
-from process import Process
+
 
 def application(process):
 
@@ -19,9 +19,9 @@ def application(process):
         elif action == "2":
             while True:
                 add_process(process)
-                continueQuestion = input('Quer adicionar mais processos? (S/N): ')
+                continueQuestion = input('Quer adicionar mais processos? (S/N): ').upper()
 
-                if continueQuestion == 'S':
+                if continueQuestion == 'S' or continueQuestion == "SIM":
                     continue
                 else:
                     print("-" * 50)
@@ -39,48 +39,40 @@ def application(process):
             print(" " * 17, "Valor Inválido")
             print("-" * 50)
 
-
-        contin = input("quer continuar ? [S/N]: ").upper()
-        if contin == "S":
-            continue
-        
-        elif contin == "N":
-            print(f" "*15,"FIM DE EXECUÇÃO")
-            break
-        
-        else:
-            print("Opção inválida. Digite apenas S ou N.\n")
-
-
 def run_algorithms(process):
-        print("-"*50)
-        print("Escolha o algoritmo de escalonamento:")
-        print(f"1 - FIFO\n2 - SJF\n3 - Ambos")
-        print("-"*50)
+    if not process.getKey():
+        print("\nNão há processos para executar. Adicione processos primeiro.")
+        return
+    
+    print("-"*50)
+    print("Escolha o algoritmo de escalonamento:")
+    print(f"1 - FIFO\n2 - SJF\n3 - Ambos")
+    print("-"*50)
 
-        option = input("Digite sua opção: ")
+    option = input("Digite sua opção: ")
 
-        if option == "1":
-            fifo = Fifo(process)
-            fifo.executar()
-        elif option == "2":
-            sjf = SJF(process)
-            sjf.executar()
-        elif option == "3":
-            fifo = Fifo(process)
-            fifo.executar()
-            sjf = SJF(process)
-            sjf.executar()
-        else:
-            print("-"*50)
-            print(f" "*17,"Valor Invalido")
-            print("-"*50)
+    if option == "1":
+        fifo = Fifo(process)
+        fifo.executar()
+    elif option == "2":
+        sjf = SJF(process)
+        sjf.executar()
+    elif option == "3":
+        fifo = Fifo(process)
+        fifo.executar()
+        sjf = SJF(process)
+        sjf.executar()
+    else:
+        print("-"*50)
+        print(f" "*17,"Valor Invalido")
+        print("-"*50)
 
 def add_process(process):
     key = input("Nome do processo a ser adicionado: ").upper()
     time = int(input("Tempo de execução do processo: "))
     process.addProcess(key, time)
-    print(f"Processo {key}: {time} adicionado.")
+    print(f"Processo ({key}): tempo {time} adicionado.")
+    print("-"*50)
 
 def remove_process(process):
     key = input("Digite a chave do processo a ser removido: ")
