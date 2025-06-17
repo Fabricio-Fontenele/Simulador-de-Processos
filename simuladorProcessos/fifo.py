@@ -34,3 +34,5 @@ class Fifo:
         print("-"* 50)
         print(f"Média do tempo de espera: {total_waiting_time / n:.2f}")
         print(f"Média do tempo de turnaround: {temp_turnaround_total / n:.2f}")
+
+        "Só testando "
